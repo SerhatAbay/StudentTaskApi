@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace StudentTaskApi.Models
 {
     public class Student
@@ -6,8 +8,7 @@ namespace StudentTaskApi.Models
         public string Name { get; set; } = "";
         public string Email { get; set; } = "";
 
+        [JsonIgnore]
         public ICollection<StudentTask> StudentTasks { get; set; } = new List<StudentTask>();
-        // Using ICollection to represent the one-to-many relationship between Student and StudentTask 
-        // = new List<StudentTask>() initializes the collection to an empty list, ensuring that it is not null when accessed.
     }
 }
